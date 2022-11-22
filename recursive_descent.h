@@ -4,7 +4,8 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "assert.h"
-#include <ctype.h>
+#include "ctype.h"
+#include "cmath"
 
 double recursiveDescent(const char *program);
 
@@ -13,6 +14,8 @@ double getAddSub(const char **program);
 double getMulDiv(const char **program);
 
 double getBrackets(const char **program);
+
+double getPow(const char **program);
 
 double getValue(const char **program);
 

@@ -2,7 +2,7 @@
 
 int main()
 {
-    double value = recursiveDescent("3+(4*5-5/3)*3");
+    double value = recursiveDescent("2^3^3+7");
     printf("%lg", value);
     return 0;
 }
