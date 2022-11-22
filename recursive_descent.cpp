@@ -175,7 +175,7 @@ double getValue(const char **program)
     while (isdigit(**program))
     {
         value = value * 10 + **program - '0';
-        ++(*program);
+        (*program)++;
     }
 
     ASSERT_OK(startPtr != *program,
