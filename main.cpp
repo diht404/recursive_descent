@@ -2,7 +2,7 @@
 
 int main()
 {
-    double value = recursiveDescent("log(log(16))");
+    double value = recursiveDescent("cos(314/100)");
     printf("%lg", value);
     return 0;
 }

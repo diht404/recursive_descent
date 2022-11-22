@@ -18,6 +18,10 @@ double getPow(const char **program);
 
 double getLog(const char **program);
 
+double getSin(const char **program);
+
+double getCos(const char **program);
+
 double getBrackets(const char **program);
 
 double getValue(const char **program);

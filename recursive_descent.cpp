@@ -56,8 +56,6 @@ double getMulDiv(const char **program)
     return leftValue;
 }
 
-
-
 double getPow(const char **program)
 {
     assert(program != nullptr);
@@ -84,12 +82,57 @@ double getLog(const char **program)
 
     double value = NAN;
 
-    if (**program == 'l' && *((*program)+1) == 'o' && *((*program)+2) == 'g')
+    if (**program == 'l' && *((*program) + 1) == 'o'
+        && *((*program) + 2) == 'g')
+    {
+        (*program) += 3;
+
+        value = getSin(program);
+        value = log(value);
+    }
+    else
+        value = getSin(program);
+
+    return value;
+}
+
+double getSin(const char **program)
+{
+    assert(program != nullptr);
+    assert(*program != nullptr);
+
+    double value = NAN;
+
+    if (**program == 's' &&
+        *((*program) + 1) == 'i' &&
+        *((*program) + 2) == 'n')
+    {
+        (*program) += 3;
+
+        value = getCos(program);
+        value = sin(value);
+    }
+    else
+        value = getCos(program);
+
+    return value;
+}
+
+double getCos(const char **program)
+{
+    assert(program != nullptr);
+    assert(*program != nullptr);
+
+    double value = NAN;
+
+    if (**program == 'c' &&
+        *((*program) + 1) == 'o' &&
+        *((*program) + 2) == 's')
     {
         (*program) += 3;
 
         value = getBrackets(program);
-        value = log(value)/log(2);
+        value = cos(value);
     }
     else
         value = getBrackets(program);
