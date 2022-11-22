@@ -61,14 +61,14 @@ double getMulDiv(const char **program)
     assert(program != nullptr);
     assert(*program != nullptr);
 
-    double leftValue = getFromBrackets(program);
+    double leftValue = getBrackets(program);
 
     while (**program == '*' || **program == '/')
     {
         char operation = **program;
         (*program)++;
 
-        double rightValue = getFromBrackets(program);
+        double rightValue = getBrackets(program);
 
         if (operation == '*')
             leftValue *= rightValue;
@@ -79,7 +79,7 @@ double getMulDiv(const char **program)
     return leftValue;
 }
 
-double getFromBrackets(const char **program)
+double getBrackets(const char **program)
 {
     assert(program != nullptr);
     assert(*program != nullptr);

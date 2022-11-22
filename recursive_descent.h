@@ -12,7 +12,7 @@ double getAddSub(const char **program);
 
 double getMulDiv(const char **program);
 
-double getFromBrackets(const char **program);
+double getBrackets(const char **program);
 
 double getValue(const char **program);
 
