@@ -13,7 +13,6 @@ double getAddSub(const char **program);
 
 double getMulDiv(const char **program);
 
-
 double getPow(const char **program);
 
 double getLog(const char **program);
