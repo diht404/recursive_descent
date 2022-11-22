@@ -68,7 +68,7 @@ double getPow(const char **program)
     {
         (*program)++;
 
-        rightValue = getLog(program);
+        rightValue = getPow(program);
         leftValue = pow(leftValue, rightValue);
     }
 
