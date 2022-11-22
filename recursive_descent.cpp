@@ -56,6 +56,47 @@ double getMulDiv(const char **program)
     return leftValue;
 }
 
+
+
+double getPow(const char **program)
+{
+    assert(program != nullptr);
+    assert(*program != nullptr);
+
+    double leftValue = getLog(program);
+    double rightValue = NAN;
+
+    while (**program == '^')
+    {
+        (*program)++;
+
+        rightValue = getLog(program);
+        leftValue = pow(leftValue, rightValue);
+    }
+
+    return leftValue;
+}
+
+double getLog(const char **program)
+{
+    assert(program != nullptr);
+    assert(*program != nullptr);
+
+    double value = NAN;
+
+    if (**program == 'l' && *((*program)+1) == 'o' && *((*program)+2) == 'g')
+    {
+        (*program) += 3;
+
+        value = getBrackets(program);
+        value = log(value)/log(2);
+    }
+    else
+        value = getBrackets(program);
+
+    return value;
+}
+
 double getBrackets(const char **program)
 {
     assert(program != nullptr);
@@ -77,25 +118,6 @@ double getBrackets(const char **program)
         value = getValue(program);
 
     return value;
-}
-
-double getPow(const char **program)
-{
-    assert(program != nullptr);
-    assert(*program != nullptr);
-
-    double leftValue = getBrackets(program);
-    double rightValue = NAN;
-
-    while (**program == '^')
-    {
-        (*program)++;
-
-        rightValue = getBrackets(program);
-        leftValue = pow(leftValue, rightValue);
-    }
-
-    return leftValue;
 }
 
 double getValue(const char **program)
