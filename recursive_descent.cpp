@@ -42,7 +42,6 @@ double getAddSub(const char **program)
 
     while (**program == '+' || **program == '-')
     {
-
         char operation = **program;
         (*program)++;
 
